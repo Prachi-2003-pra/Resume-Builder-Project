@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Builder</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a2e0e6ad6e.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-gradient-to-r from-blue-50 to-white min-h-screen text-gray-800">
+  <header class="bg-blue-700 text-white py-6 shadow-md">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold">Visual Resume Builder</h1>
+      <a href="index.html" class="text-white hover:underline">Home</a>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg animate-slideUp">
+      <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Enter Your Resume Details</h2>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label for="name" class="block font-medium mb-1">Full Name</label>
+          <input type="text" id="name" placeholder="John Doe" class="input-field">
+        </div>
+        <div>
+          <label for="title" class="block font-medium mb-1">Job Title</label>
+          <input type="text" id="title" placeholder="Frontend Developer" class="input-field">
+        </div>
+        <div>
+          <label for="linkedin" class="block font-medium mb-1">LinkedIn URL</label>
+          <input type="text" id="linkedin" placeholder="https://linkedin.com/in/username" class="input-field">
+        </div>
+        <div>
+          <label for="github" class="block font-medium mb-1">GitHub URL</label>
+          <input type="text" id="github" placeholder="https://github.com/username" class="input-field">
+        </div>
+        <div>
+          <label for="profileImage" class="block font-medium mb-1">Upload Profile Image</label>
+          <input type="file" id="profileImage" accept="image/*" class="input-field">
+        </div>
+      </div>
+
+      <div class="mt-8 space-y-4">
+        <!-- Accordion Template -->
+        <details open
+          class="group p-4 border border-blue-200 rounded-lg shadow transition-all duration-300 hover:shadow-md bg-white">
+          <summary
+            class="cursor-pointer flex items-center text-lg font-semibold text-blue-700 group-open:text-blue-900">
+            <i class="fas fa-user-circle mr-2"></i> Summary
+          </summary>
+          <textarea id="summary" rows="3" placeholder="Brief professional summary"
+            class="input-field mt-3 w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-400 transition duration-200"></textarea>
+        </details>
+
+        <details
+          class="group p-4 border border-blue-200 rounded-lg shadow transition-all duration-300 hover:shadow-md bg-white">
+          <summary
+            class="cursor-pointer flex items-center text-lg font-semibold text-blue-700 group-open:text-blue-900">
+            <i class="fas fa-graduation-cap mr-2"></i> Education
+          </summary>
+          <textarea id="education" rows="3" placeholder="Use bullets (•) for each qualification"
+            class="input-field mt-3 w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-400 transition duration-200"></textarea>
+        </details>
+
+        <details
+          class="group p-4 border border-blue-200 rounded-lg shadow transition-all duration-300 hover:shadow-md bg-white">
+          <summary
+            class="cursor-pointer flex items-center text-lg font-semibold text-blue-700 group-open:text-blue-900">
+            <i class="fas fa-tools mr-2"></i> Skills
+          </summary>
+          <textarea id="skills" rows="3" placeholder="Use bullets (•) for each skill"
+            class="input-field mt-3 w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-400 transition duration-200"></textarea>
+        </details>
+
+        <details
+          class="group p-4 border border-blue-200 rounded-lg shadow transition-all duration-300 hover:shadow-md bg-white">
+          <summary
+            class="cursor-pointer flex items-center text-lg font-semibold text-blue-700 group-open:text-blue-900">
+            <i class="fas fa-code mr-2"></i> Projects
+          </summary>
+          <textarea id="projects" rows="3" placeholder="Use bullets (•) for each project"
+            class="input-field mt-3 w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-400 transition duration-200"></textarea>
+        </details>
+
+        <details
+          class="group p-4 border border-blue-200 rounded-lg shadow transition-all duration-300 hover:shadow-md bg-white">
+          <summary
+            class="cursor-pointer flex items-center text-lg font-semibold text-blue-700 group-open:text-blue-900">
+            <i class="fas fa-briefcase mr-2"></i> Experience
+          </summary>
+          <textarea id="experience" rows="3" placeholder="Use bullets (•) for each role or responsibility"
+            class="input-field mt-3 w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-400 transition duration-200"></textarea>
+        </details>
+      </div>
+
+
+      <div class="flex flex-wrap gap-4 justify-center mt-6">
+        <button onclick="generateResume()"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow">Generate Resume</button>
+        <button onclick="printResume()"
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow">Print</button>
+        <button onclick="downloadPDF()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded shadow">Download
+          as PDF</button>
+      </div>
+    </div>
+
+    <div id="resumePreview" class="printable mt-10 p-6 bg-white rounded-lg shadow-lg hidden"></div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

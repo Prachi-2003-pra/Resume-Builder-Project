@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Builder</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fadeSlide {
+      animation: fadeSlide 1s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-white flex flex-col items-center justify-center h-screen text-center px-4">
+  <div class="animate-fadeSlide">
+    <h1 class="text-4xl md:text-6xl font-bold text-blue-700 mb-4">Build Your Professional Resume</h1>
+    <p class="text-lg text-gray-600 mb-6">Create, customize, and download your resume in minutes!</p>
+    <a href="resume.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition-all transform hover:scale-105 animate-pulse">
+      Get Started
+    </a>
+  </div>
+</body>
+</html>
